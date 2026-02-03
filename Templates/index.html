@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento Imobiliária R.M</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Sistema de Orçamento</h1>
+        <form method="POST">
+            <label>Tipo de Imóvel:</label>
+            <select name="tipo" required>
+                <option value="apartamento">Apartamento</option>
+                <option value="casa">Casa</option>
+                <option value="estudio">Estúdio</option>
+            </select><br>
+            <label>Quartos:</label>
+            <select name="quartos" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select><br>
+            <label><input type="checkbox" name="garagem"> Garagem</label><br>
+            <label><input type="checkbox" name="tem_criancas"> Tem Crianças</label><br>
+            <label>Vagas Extras (estúdio):</label>
+            <input type="number" name="vagas_extra" value="0"><br>
+            <label>Parcelas do Contrato:</label>
+            <input type="number" name="parcelas_contrato" value="1" min="1" max="5" required><br>
+            <label><input type="checkbox" name="gerar_csv"> Gerar CSV</label><br>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+</body>
+</html>

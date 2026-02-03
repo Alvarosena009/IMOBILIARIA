@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado do Orçamento</h1>
+        <p>Aluguel Mensal: R$ {{ aluguel }}</p>
+        <p>Contrato: R$ {{ contrato }} ({{ num_parcelas }}x de R$ {{ parcela_contrato }})</p>
+        {% if csv_gerado %}
+            <p><a href="{{ url_for('download_csv') }}">Baixar CSV</a></p>
+        {% endif %}
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>
