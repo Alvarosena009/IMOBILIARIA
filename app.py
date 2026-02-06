@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file, flash
 from orcamento import Orcamento
-import os
+import orcamento
 
 app = Flask(__name__)
 app.secret_key = 'chave_secreta'
@@ -16,7 +16,7 @@ def index():
             vagas_extra = int(request.form.get('vagas_extra', 0))
             parcelas_contrato = int(request.form.get('parcelas_contrato', 1))
             
-            orcamento = Orcamento(tipo, quartos, garagem, tem_criancas, vagas_extra)
+            orcamento = orcamento(tipo, quartos, garagem, tem_criancas, vagas_extra)
             aluguel = orcamento.calcular_aluguel()
             parcela_contrato, num_parcelas = orcamento.calcular_contrato(parcelas_contrato)
             
